@@ -7,7 +7,8 @@ Created on Wed Mar 24 15:23:18 2021
 import base64
 from io import BytesIO
 
-
+install xlsxwriter
+import xlsxwriter
 import streamlit as st
 import pandas as pd
 #from plotly.offline import iplot
