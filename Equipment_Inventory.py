@@ -126,25 +126,25 @@ df.set_index('Job', inplace=True)
 df.columns = ['Class Name', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
 st.dataframe(df)
 ###########
-def to_excel(df):
-    output = BytesIO()
-    writer = pd.ExcelWriter(output, engine='xlsxwriter')
-    df.to_excel(writer, sheet_name='Sheet1')
-    writer.save()
-    processed_data = output.getvalue()
-    return processed_data
+#def to_excel(df):
+#    output = BytesIO()
+#    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+#    df.to_excel(writer, sheet_name='Sheet1')
+#    writer.save()
+#    processed_data = output.getvalue()
+#    return processed_data
 
-def get_table_download_link(df):
+#def get_table_download_link(df):
     """Generates a link allowing the data in a given panda dataframe to be downloaded
     in:  dataframe
     out: href string
     """
-    val = to_excel(df)
-    b64 = base64.b64encode(val)  # val looks like b'...'
-    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="extract.xlsx">Download csv file - Detailed Version</a>' # decode b'abc' => abc
+#    val = to_excel(df)
+#    b64 = base64.b64encode(val)  # val looks like b'...'
+#    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="extract.xlsx">Download csv file - Detailed Version</a>' # decode b'abc' => abc
 
-df = df # your dataframe
-st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+#df = df # your dataframe
+#st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 ###########
 
 
