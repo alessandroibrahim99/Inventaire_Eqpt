@@ -4,15 +4,15 @@ Created on Wed Mar 24 15:23:18 2021
 
 @author: alessandro.ibrahim
 """
-pip install plotly
+#pip install plotly
 import base64
 from io import BytesIO
 
 import streamlit as st
 import pandas as pd
-from plotly.offline import iplot
-import plotly.graph_objs as go
-import plotly.express as px
+#from plotly.offline import iplot
+#import plotly.graph_objs as go
+#import plotly.express as px
 fig = go.Figure()
 
 
