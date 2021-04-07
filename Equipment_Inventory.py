@@ -4,7 +4,6 @@ Created on Wed Mar 24 15:23:18 2021
 
 @author: alessandro.ibrahim
 """
-#pip install plotly
 import base64
 from io import BytesIO
 
