@@ -13,7 +13,7 @@ import pandas as pd
 #from plotly.offline import iplot
 #import plotly.graph_objs as go
 #import plotly.express as px
-fig = go.Figure()
+#fig = go.Figure()
 
 
 ###LOGO
