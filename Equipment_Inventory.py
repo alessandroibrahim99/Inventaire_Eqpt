@@ -57,11 +57,7 @@ df=df.fillna("")
 st.sidebar.title("Equip.Inventory - By Job")
 
 
-State_list = st.sidebar.selectbox('Choose your Job (20.0378)', sorted(dfstate.Job.unique()), index=0)#[:40000])
-
-
-#State_list2 = st.sidebar.selectbox('Class1 Name1 (Laser Rotatif)1',sorted(dfstate.loc[dfstate.Job == State_list].EquipClassName.unique())#[:80000])
-
+State_list = st.sidebar.selectbox('Choose your Job (ex:20.0378)', sorted(dfstate.Job.unique()), index=0)#[:40000])
 
 
 # Select a State from sidebar to update this chart
@@ -160,10 +156,9 @@ st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 # #---------------------
 
 #Dashboard Sidebar with State list
-df1=df1.fillna("")
 st.sidebar.title("Equip.Inventory - By Class Name")
-#State_list1 = st.sidebar.selectbox('Class Name (Laser Rotatif)', df1.EquipClassName)#[:80000])
-State_list1 = st.sidebar.selectbox('Class Name (Laser Rotatif)', sorted(df1.EquipClassName.unique()), index=0)#[:40000])
+#State_list1 = st.sidebar.selectbox('Class Name (ex:Laser Rotatif)', df1.EquipClassName)#[:80000])
+State_list1 = st.sidebar.selectbox('Class Name (ex:Laser Rotatif)', sorted(df1.EquipClassName.unique()), index=0)#[:40000])
 
 
 ###Search by Class
