@@ -58,7 +58,7 @@ st.sidebar.title("Equip.Inventory - By Job")
 
 
 State_list = st.sidebar.selectbox('Choose your Job (ex:20.0378)', sorted(dfstate.Job.unique()), index=0)#[:40000])
-Class_list = st.sidebar.selectbox('Class Name', list(dfstate[dfstate.Job == Job_list].EquipClassName.unique()))
+Class_list = st.sidebar.selectbox('Class Name', list(dfstate[dfstate.Job == State_list].EquipClassName.unique()))
 
 # Select a State from sidebar to update this chart
 st.title("""Equip.Inventory - By Job
