@@ -1,17 +1,18 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 24 15:23:18 2021
+# # -*- coding: utf-8 -*-
+# """
+# Created on Wed Mar 24 15:23:18 2021
 
-@author: alessandro.ibrahim
-"""
+# @author: alessandro.ibrahim
+# """
 import base64
 from io import BytesIO
 
-#pip install Xlsxwriter
-#import xlsxwriter
 import streamlit as st
 import pandas as pd
-
+###from plotly.offline import iplot
+#import plotly.graph_objs as go
+#import plotly.express as px
+#fig = go.Figure()
 
 
 ###LOGO
@@ -39,11 +40,16 @@ def load_data(nrows):
     data = pd.read_csv(csv_file_state)
     return data
 
-df = load_data(40000) 
-df1 = load_data(40000)
+df = load_data(100000) 
+df1 = load_data(100000)
 #df = df.loc[df['Active'] == 'Y']
 dfstate = df
 df1 = df
+
+df1=df1.fillna("")
+df=df.fillna("")
+
+
 
 
 
@@ -51,9 +57,12 @@ df1 = df
 st.sidebar.title("Equip.Inventory - By Job")
 
 
-State_list = st.sidebar.selectbox(
-      'Choose your Job (20.0378)',
-        dfstate.Job[:40000])
+State_list = st.sidebar.selectbox('Choose your Job (20.0378)', sorted(dfstate.Job.unique()), index=0)#[:40000])
+
+
+#State_list2 = st.sidebar.selectbox('Class1 Name1 (Laser Rotatif)1',sorted(dfstate.loc[dfstate.Job == State_list].EquipClassName.unique())#[:80000])
+
+
 
 # Select a State from sidebar to update this chart
 st.title("""Equip.Inventory - By Job
@@ -134,10 +143,10 @@ def to_excel(df):
     return processed_data
 
 def get_table_download_link(df):
-#    """Generates a link allowing the data in a given panda dataframe to be downloaded
-#    in:  dataframe
-#    out: href string
-#    """
+    """Generates a link allowing the data in a given panda dataframe to be downloaded
+    in:  dataframe
+    out: href string
+    """
     val = to_excel(df)
     b64 = base64.b64encode(val)  # val looks like b'...'
     return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="extract.xlsx">Download csv file - Detailed Version</a>' # decode b'abc' => abc
@@ -151,11 +160,10 @@ st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 # #---------------------
 
 #Dashboard Sidebar with State list
+df1=df1.fillna("")
 st.sidebar.title("Equip.Inventory - By Class Name")
-State_list1 = st.sidebar.selectbox(
-      'Class Name (Laser Rotatif)',
-        df1.EquipClassName[:80000])
-
+#State_list1 = st.sidebar.selectbox('Class Name (Laser Rotatif)', df1.EquipClassName)#[:80000])
+State_list1 = st.sidebar.selectbox('Class Name (Laser Rotatif)', sorted(df1.EquipClassName.unique()), index=0)#[:40000])
 
 
 ###Search by Class
