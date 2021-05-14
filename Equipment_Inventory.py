@@ -59,7 +59,7 @@ st.sidebar.title("Equip.Inventory - By Job or Name")
 State_list = st.sidebar.selectbox('Choose your Job (ex:20.0378 or ROBERVAL )', sorted(dfstate.Job.unique()), index=0)#[:40000])
 #Class_listN = st.sidebar.selectbox('Job Name', list(dfstate[dfstate.Job == State_list].Act_Loc_Name.unique()), index=0)
 Class_list = st.sidebar.selectbox('Class Name', list(dfstate[dfstate.Job == State_list].EquipClassName.unique()))
-Class_listt = st.sidebar.selectbox('Sub Class Name', list(dfstate[dfstate.EquipClassName == Class_list].EquipSousClassName.unique()), index=0)
+Class_listt = st.sidebar.selectbox('Sub-Class Name', list(dfstate[dfstate.EquipClassName == Class_list].EquipSousClassName.unique()), index=0)
 
 
 #State_list = st.sidebar.selectbox('Choose your Job (ex:20.0378)', sorted(dfstate.Job.unique()), index=0)#[:40000])
@@ -170,7 +170,7 @@ st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 st.sidebar.title("Equip.Inventory - By Class Name")
 #State_list1 = st.sidebar.selectbox('Class Name (ex:Laser Rotatif)', df1.EquipClassName)#[:80000])
 State_list1 = st.sidebar.selectbox('Class Name (ex: Camionnette)', sorted(df1.EquipClassName.unique()), index=0)#[:40000])
-Class_list1 = st.sidebar.selectbox('Sub Class Name', list(df1[df1.EquipClassName == State_list1].EquipSousClassName.unique()), index=0)#, index=0)#[:40000])
+Class_list1 = st.sidebar.selectbox('Sub-Class Name', list(df1[df1.EquipClassName == State_list1].EquipSousClassName.unique()), index=0)#, index=0)#[:40000])
 
 
 ###Search by Class
