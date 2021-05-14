@@ -180,7 +180,7 @@ st.title("""Equip.Inventory - By Class Name
 
 ###########
 #First1 table
-st.markdown("""Number of Equipments by Class - All Jobs1""")
+st.markdown("""Number of Equipments by Class - All Jobs""")
 newdf = df1[df1['EquipClassName'] == State_list1 ]# & df1[df1['EquipClassName'] == Class_list1 ])
 
 
