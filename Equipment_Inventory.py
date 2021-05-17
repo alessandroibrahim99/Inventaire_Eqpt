@@ -129,14 +129,14 @@ df = newdf
 
 
 def get_table():
-    datatable = df[['Job', 'EquipClassName', 'Equip. Code','Equip. Name', 'Equip. Desc', 'Start Date', 'Brand', 'Model', 'Year', 'Serial #','EquipSousClassName']].sort_values(by=['Job'], ascending=False)
+    datatable = df[['Job', 'EquipClassName','EquipSousClassName', 'Equip. Code','Equip. Name', 'Equip. Desc', 'Start Date', 'Brand', 'Model', 'Year', 'Serial #']].sort_values(by=['Job'], ascending=False)
     
     return datatable
 
 df = get_table()
 
 df.set_index('Job', inplace=True)
-df.columns = ['Class Name', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #','EquipSousClassName']
+df.columns = ['Class Name','EquipSousClassName', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
 st.dataframe(df)
 ###########
 
