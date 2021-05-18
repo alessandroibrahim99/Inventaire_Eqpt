@@ -204,8 +204,9 @@ st.dataframe(newdf1)
 ###########
 
 ###########
+###########
 #First table
-st.markdown("""Number of Equipments by Class - All Jobs""")
+st.markdown("""Number of Equipments by Sub-Class - All Jobs""")
 newdf = df1[df1['EquipClassName'] == State_list1 ]
 
 
@@ -213,7 +214,7 @@ df = newdf
 
 
 def get_table():
-    datatable = df.groupby(["EquipClassName"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable = df.groupby(["EquipClassName","EquipSousClassName"], as_index=False, sort=False)["Equip. Code"].count()
     
     return datatable
 
@@ -221,19 +222,18 @@ newdf1 = get_table()
 newdf1.set_index('EquipClassName', inplace=True)
 
 
-newdf1.columns = ['Nb.of Equipments']
+newdf1.columns = ['Sub-Class Name','Nb.of Equipments']
 st.dataframe(newdf1)
 
-
-
 ###########
+
 #Second table
 st.markdown("""Number of Equipments by Class & Job - All Jobs""")
 
 
 def get_table1():
     datatable1 = df.groupby(["EquipClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
-    
+    #datatable1 = df.groupby(["EquipClassName","EquipSousClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
     return datatable1
 
 newdf1 = get_table1()
@@ -245,8 +245,8 @@ df1.set_index('EquipClassName', inplace=True)
 
 newdf1 = df1
 newdf1.columns = ['Job','Nb.of Equipments']
+#newdf1.columns = ['Sub-Class Name','Job','Nb.of Equipments']
 st.dataframe(newdf1)
-
 
 
 ###########
