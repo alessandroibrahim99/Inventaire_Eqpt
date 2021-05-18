@@ -261,27 +261,3 @@ newdf2 = get_table2()
 st.map(newdf2)
 
 
-
-###########
-# #Third table
-
-# st.markdown("""Equipment Inventory Class  List - Detailed Version
-#  	""")
-
-# newdf = dfstate[dfstate['EquipClassName'] == Class_list]
-# df_Class = newdf
-
-
-# def get_table():
-#     datatable = df_Class[['Job', 'EquipClassName', 'Equip. Code','Equip. Name', 'Equip. Desc', 'Start Date', 'Brand', 'Model', 'Year', 'Serial #']].sort_values(by=['Job'], ascending=False)
-    
-#     return datatable
-
-# df_Class = get_table()
-
-# df_Class.set_index('Job', inplace=True)
-# df_Class.columns = ['Class Name', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
-# st.dataframe(df_Class)
-###########
-
-
