@@ -206,7 +206,7 @@ st.dataframe(newdf1)
 ###########
 ###########
 #First table
-st.markdown("""Number of Equipments by Class&Sub-Class - All Jobs""")
+st.markdown("""Number of Equipments by Class & Sub-Class - All Jobs""")
 newdf = df1[df1['EquipClassName'] == State_list1 ]
 
 
