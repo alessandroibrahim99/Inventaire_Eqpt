@@ -261,4 +261,5 @@ newdf2 = get_table2()
 st.map(newdf2)
 
 
-st.markdown('Created by [Ben Davis](https://github.com/BenDavis71/)')
+#st.markdown('Created by [Alessandro Ibrahim](https://github.com/BenDavis71/)')
+st.markdown('Created by Alessandro Ibrahim')
