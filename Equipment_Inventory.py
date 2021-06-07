@@ -232,8 +232,8 @@ st.markdown("""Number of Equipment by Class & Job""")
 
 
 def get_table1():
-    datatable1 = df.groupby(["EquipClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
-    #datatable1 = df.groupby(["EquipClassName","EquipSousClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
+    #datatable1 = df.groupby(["EquipClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable1 = df.groupby(["EquipClassName","EquipSousClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
     return datatable1
 
 newdf1 = get_table1()
@@ -244,8 +244,8 @@ df1.sort_values('Equip. Code')
 df1.set_index('EquipClassName', inplace=True)
 
 newdf1 = df1
-newdf1.columns = ['Job','Nb.of Equipment']
-#newdf1.columns = ['Sub-Class Name','Job','Nb.of Equipments']
+#newdf1.columns = ['Job','Nb.of Equipment']
+newdf1.columns = ['Sub-Class Name','Job','Nb.of Equipment']
 st.dataframe(newdf1)
 
 
