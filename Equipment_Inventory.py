@@ -54,7 +54,7 @@ df=df.fillna("")
 
 
 ######
-st.sidebar.title("Equip.Inventory - By Job or Name")
+st.sidebar.title("Equipment Inventory - By Job or Name")
 
 State_list = st.sidebar.selectbox('Choose your Job (ex:20.0378 or ROBERVAL )', sorted(dfstate.Job.unique()), index=0)#[:40000])
 #Class_listN = st.sidebar.selectbox('Job Name', list(dfstate[dfstate.Job == State_list].Act_Loc_Name.unique()), index=0)
@@ -66,7 +66,7 @@ Class_listt = st.sidebar.selectbox('Sub-Class Name', list(dfstate[dfstate.EquipC
 #Class_list = st.sidebar.selectbox('Class Name', list(dfstate[dfstate.Job == State_list].EquipClassName.unique()))
 
 # Select a State from sidebar to update this chart
-st.title("""Equip.Inventory - By Job
+st.title("""Equipment Inventory - By Job
  	""")
 
 newdf = dfstate[dfstate['Job'] == State_list]
@@ -77,7 +77,7 @@ newdf = dfstate[dfstate['Job'] == State_list]
 #First table
 # Select a State from sidebar to update this chart
 
-st.markdown("""Number of Equipments by Job""")
+st.markdown("""Number of Equipment by Job""")
 
 newdf = dfstate[dfstate['Job'] == State_list]
 df = newdf
@@ -90,7 +90,7 @@ def get_table():
 
 newdf1 = get_table()
 newdf1.set_index('Job', inplace=True)
-newdf1.columns = ['Nb.of Equipments']
+newdf1.columns = ['Nb.of Equipment']
 
 st.dataframe(newdf1)
 ##############
@@ -98,7 +98,7 @@ st.dataframe(newdf1)
 ###########
 #Second first table
 
-st.markdown("""Number of Equipments by Job & Class""")
+st.markdown("""Number of Equipment by Class & Sub-Class""")
 
 
 def get_table():
@@ -114,7 +114,7 @@ df.sort_values('Equip. Code')
 df.set_index('Job', inplace=True)
 
 newdf1 = df
-newdf1.columns = ['Class Name','Nb. of Equipments']
+newdf1.columns = ['Class Name','Nb. of Equipment']
 st.dataframe(newdf1)
 ############################
 
@@ -180,7 +180,7 @@ st.title("""Equip.Inventory - By Class Name
 
 ###########
 #First1 table
-st.markdown("""Number of Equipments by Class - All Jobs""")
+st.markdown("""Number of Equipment by Class - All Jobs""")
 newdf = df1[df1['EquipClassName'] == State_list1 ]# & df1[df1['EquipClassName'] == Class_list1 ])
 
 
@@ -196,7 +196,7 @@ newdf1 = get_table()
 newdf1.set_index('EquipClassName', inplace=True)
 
 
-newdf1.columns = ['Nb.of Equipments']
+newdf1.columns = ['Nb.of Equipment']
 st.dataframe(newdf1)
 
 
@@ -206,7 +206,7 @@ st.dataframe(newdf1)
 ###########
 ###########
 #First table
-st.markdown("""Number of Equipments by Class & Sub-Class - All Jobs""")
+st.markdown("""Number of Equipment by Class & Sub-Class - All Jobs""")
 newdf = df1[df1['EquipClassName'] == State_list1 ]
 
 
@@ -222,13 +222,13 @@ newdf1 = get_table()
 newdf1.set_index('EquipClassName', inplace=True)
 
 
-newdf1.columns = ['Sub-Class Name','Nb.of Equipments']
+newdf1.columns = ['Sub-Class Name','Nb.of Equipment']
 st.dataframe(newdf1)
 
 ###########
 
 #Second table
-st.markdown("""Number of Equipments by Class & Job - All Jobs""")
+st.markdown("""Number of Equipment by Class & Job - All Jobs""")
 
 
 def get_table1():
@@ -244,7 +244,7 @@ df1.sort_values('Equip. Code')
 df1.set_index('EquipClassName', inplace=True)
 
 newdf1 = df1
-newdf1.columns = ['Job','Nb.of Equipments']
+newdf1.columns = ['Job','Nb.of Equipment']
 #newdf1.columns = ['Sub-Class Name','Job','Nb.of Equipments']
 st.dataframe(newdf1)
 
