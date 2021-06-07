@@ -228,7 +228,7 @@ st.dataframe(newdf1)
 ###########
 
 #Second table
-st.markdown("""Number of Equipment by Class & Job""")
+st.markdown("""Number of Equipment by Class & Sub-Class & Job""")
 
 
 def get_table1():
