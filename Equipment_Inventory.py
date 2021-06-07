@@ -102,7 +102,7 @@ st.markdown("""Number of Equipment by Class & Sub-Class""")
 
 
 def get_table():
-    datatable = df.groupby(["Job","EquipClassName","EquipClassName"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable = df.groupby(["Job","EquipClassName","EquipSousClassName"], as_index=False, sort=False)["Equip. Code"].count()
     
     return datatable
 
