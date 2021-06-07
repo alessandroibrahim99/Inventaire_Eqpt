@@ -167,7 +167,7 @@ st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 # #---------------------
 
 #Dashboard Sidebar with State list
-st.sidebar.title("Equip.Inventory - By Class Name")
+st.sidebar.title("Equipment Inventory - By Class Name")
 #State_list1 = st.sidebar.selectbox('Class Name (ex:Laser Rotatif)', df1.EquipClassName)#[:80000])
 State_list1 = st.sidebar.selectbox('Class Name (ex: Camionnette)', sorted(df1.EquipClassName.unique()), index=0)#[:40000])
 Class_list1 = st.sidebar.selectbox('Sub-Class Name', list(df1[df1.EquipClassName == State_list1].EquipSousClassName.unique()), index=0)#, index=0)#[:40000])
