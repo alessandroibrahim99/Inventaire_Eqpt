@@ -136,7 +136,7 @@ def get_table():
 df = get_table()
 
 df.set_index('Job', inplace=True)
-df.columns = ['Class Name','EquipSousClassName', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
+df.columns = ['Class Name','Sub-Class Name', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
 st.dataframe(df)
 ###########
 
