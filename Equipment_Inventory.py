@@ -77,7 +77,7 @@ newdf = dfstate[dfstate['Job'] == State_list]
 #First table
 # Select a State from sidebar to update this chart
 
-st.markdown("""Number of Equipment by Job""")
+st.markdown("""Number of Equipment""")
 
 newdf = dfstate[dfstate['Job'] == State_list]
 df = newdf
@@ -175,7 +175,7 @@ Class_list1 = st.sidebar.selectbox('Sub-Class Name', list(df1[df1.EquipClassName
 
 ###Search by Class
 # Select a State from sidebar to update this chart
-st.title("""Equip.Inventory - By Class Name
+st.title("""Equipment Inventory - By Class Name
  	""")
 
 ###########
