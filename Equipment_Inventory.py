@@ -102,7 +102,7 @@ st.markdown("""Number of Equipment by Class & Sub-Class""")
 
 
 def get_table():
-    datatable = df.groupby(["Job","EquipClassName","EquipSousClassName"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable = df.groupby(["Job","EquipClassName","EquipSousClassName"], as_index=False, sort=False).agg({"Equip. Code":"count", "Qty" : "sum"})#.count()# ["Qty"].count()
     
     return datatable
 
@@ -111,10 +111,11 @@ newdf1 = get_table()
 
 df = newdf1
 df.sort_values('Equip. Code')
+#df.sort_values('Qty')
 df.set_index('Job', inplace=True)
 
 newdf1 = df
-newdf1.columns = ['Class Name','Sub-Class Name','Nb. of Equipment']
+newdf1.columns = ['Class Name','Sub-Class Name','Nb. of Equipment','Qty. of Bulk Equipment']
 st.dataframe(newdf1)
 ############################
 
@@ -129,14 +130,14 @@ df = newdf
 
 
 def get_table():
-    datatable = df[['Job', 'EquipClassName','EquipSousClassName', 'Equip. Code','Equip. Name', 'Equip. Desc', 'Start Date', 'Brand', 'Model', 'Year', 'Serial #']].sort_values(by=['Job'], ascending=False)
+    datatable = df[['Job', 'EquipClassName','EquipSousClassName', 'Equip. Code','Equip. Name', 'Equip. Desc', 'Qty','Start Date', 'Brand', 'Model', 'Year', 'Serial #']].sort_values(by=['Job'], ascending=False)
     
     return datatable
 
 df = get_table()
 
 df.set_index('Job', inplace=True)
-df.columns = ['Class Name','Sub-Class Name', 'Equip. Code','Equip. Name', 'Equip. Desc','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
+df.columns = ['Class Name','Sub-Class Name', 'Equip. Code','Equip. Name', 'Equip. Desc', 'Qty','Start Date', 'Brand', 'Model', 'Year', 'Serial #']
 st.dataframe(df)
 ###########
 
@@ -188,7 +189,7 @@ df = newdf
 
 
 def get_table():
-    datatable = df.groupby(["EquipClassName"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable = df.groupby(["EquipClassName"], as_index=False, sort=False).agg({"Equip. Code":"count", "Qty" : "sum"})#["Equip. Code"].count()
     
     return datatable
 
@@ -196,7 +197,7 @@ newdf1 = get_table()
 newdf1.set_index('EquipClassName', inplace=True)
 
 
-newdf1.columns = ['Nb.of Equipment']
+newdf1.columns = ['Nb.of Equipment','Qty. of Bulk Equipment']
 st.dataframe(newdf1)
 
 
@@ -214,7 +215,7 @@ df = newdf
 
 
 def get_table():
-    datatable = df.groupby(["EquipClassName","EquipSousClassName"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable = df.groupby(["EquipClassName","EquipSousClassName"], as_index=False, sort=False).agg({"Equip. Code":"count", "Qty" : "sum"})#["Equip. Code"].count()
     
     return datatable
 
@@ -222,18 +223,18 @@ newdf1 = get_table()
 newdf1.set_index('EquipClassName', inplace=True)
 
 
-newdf1.columns = ['Sub-Class Name','Nb.of Equipment']
+newdf1.columns = ['Sub-Class Name','Nb.of Equipment','Qty. of Bulk Equipment']
 st.dataframe(newdf1)
 
 ###########
 
-#Second table
+#Third table
 st.markdown("""Number of Equipment by Class & Sub-Class & Job""")
 
 
 def get_table1():
     #datatable1 = df.groupby(["EquipClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
-    datatable1 = df.groupby(["EquipClassName","EquipSousClassName","Job"], as_index=False, sort=False)["Equip. Code"].count()
+    datatable1 = df.groupby(["EquipClassName","EquipSousClassName","Job"], as_index=False, sort=False).agg({"Equip. Code":"count", "Qty" : "sum"})#["Equip. Code"].count()
     return datatable1
 
 newdf1 = get_table1()
@@ -245,7 +246,7 @@ df1.set_index('EquipClassName', inplace=True)
 
 newdf1 = df1
 #newdf1.columns = ['Job','Nb.of Equipment']
-newdf1.columns = ['Sub-Class Name','Job','Nb.of Equipment']
+newdf1.columns = ['Sub-Class Name','Job','Nb.of Equipment','Qty. of Bulk Equipment']
 st.dataframe(newdf1)
 
 
@@ -262,4 +263,4 @@ st.map(newdf2)
 
 
 #st.markdown('Created by [Alessandro Ibrahim](https://github.com/BenDavis71/)')
-st.markdown('Created by Alessandro Ibrahhim')
+st.markdown('Created by Alessandro Ibrahim')
