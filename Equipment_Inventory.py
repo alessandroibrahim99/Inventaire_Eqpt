@@ -262,4 +262,4 @@ st.map(newdf2)
 
 
 #st.markdown('Created by [Alessandro Ibrahim](https://github.com/BenDavis71/)')
-st.markdown('Created by Alessandro Ibrahim')
+st.markdown('Created by Alessandro Ibrahhim')
